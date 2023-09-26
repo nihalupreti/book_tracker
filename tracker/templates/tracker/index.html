@@ -1,0 +1,38 @@
+{% extends "tracker/layout.html" %}
+{% load static %}
+
+{% block page_title %}Tracker{% endblock %}
+
+{% block style_sheet %}
+    <link rel="stylesheet" href="{% static "tracker/style.css" %}" />
+{% endblock %}
+
+
+
+{% block page_content %}
+<main>
+    <figure>
+      <picture>
+        <img       src="https://images.unsplash.com/photo-1568667256549-094345857637?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2030&q=80"
+                   alt="library" />
+      </picture>
+    </figure>
+    <form>
+      <span>
+        <label for="name" class="text-small-uppercase">Book Name</label>
+        <input class="text-body" id="username" name="username" type="text" required>
+      </span>
+      <span>
+        <label for="email" class="text-small-uppercase">Email</label>
+        <input class="text-body" id="email" name="email" type="email" required>
+      </span>
+      <span>
+        <label for="city" class="text-small-uppercase">City</label>
+        <input class="text-body" id="city" name="city" type="text" required>
+      </span>
+      <input class="text-small-uppercase" id="submit" type="submit" value="Done">
+    </form>
+  </main>
+
+  <script type="text/javascript" src="{% static 'tracker/js/app.js' %}"></script>
+{% endblock %}
