@@ -23,26 +23,3 @@ function onBlur( ev ) {
     ev.target.addEventListener( 'input', liveValidation );
   }
 }
-
-function liveValidation( ev ) {
-  if ( ev.target.checkValidity() == false ) {
-    ev.target.parentNode.classList.add( 'inputs--invalid' );
-  } else {
-    ev.target.parentNode.classList.remove( 'inputs--invalid' );
-  }
-}
-
-var submitBtn = document.querySelector( 'input[type=submit]' );
-submitBtn.addEventListener( 'click', onSubmit );
-
-function onSubmit( ev ) {
-  var inputsWrappers = ev.target.parentNode.querySelectorAll( 'span' );
-  for (i = 0; i < inputsWrappers.length; i ++) {
-    input = inputsWrappers[i].querySelector( 'input[type=text], input[type=email]' );
-    if ( input.checkValidity() == false ) {
-      inputsWrappers[i].classList.add( 'inputs--invalid' );
-    } else if ( input.checkValidity() == true ) {
-      inputsWrappers[i].classList.remove( 'inputs--invalid' );
-    }
-  }
-}

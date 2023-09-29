@@ -6,7 +6,6 @@ img {
   input[type=submit] {
     background: #fff;
     height: 2.75rem;
-    margin: 1em auto auto;
   }
   
   @media (min-width: 768px) {
@@ -16,11 +15,9 @@ img {
       left: 2.55rem;
       height: 2.75rem;
       padding: 0 3rem;
-      position: absolute;
     }
   }
   
-  input[type=email],
   input[type=text] {
     height: 1.5rem;
     margin: 0 0 1.15rem;
@@ -154,6 +151,10 @@ img {
     display: inline-block;
     transform: translate(0, 1.25rem);
     transition: 0.15s;
+    color: #74bdb7;
+    font: 700 .75rem 'Montserrat';
+    letter-spacing: .08rem;
+    text-transform: uppercase;
   }
   
   main {
@@ -163,17 +164,8 @@ img {
   }
   
  
-  
-  .text-body {
+  span input {
     color: #354c58;
     font: 700 16px 'Montserrat', sans-serif;
   }
   
-  .text-small-uppercase {
-    color: #74bdb7;
-    font: 700 .75rem 'Montserrat';
-    letter-spacing: .08rem;
-    text-transform: uppercase;
-  }
-  
-
