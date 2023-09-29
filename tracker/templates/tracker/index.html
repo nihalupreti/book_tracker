@@ -10,34 +10,15 @@
 
 
 {% block page_content %}
-<main>
-    <figure>
-      <picture>
-        <img       src="https://images.unsplash.com/photo-1568667256549-094345857637?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2030&q=80"
-                   alt="library" />
-      </picture>
-    </figure>
-    <form method="post">
+    <form method="POST">
       {% csrf_token %}
-      <span>
-        {{ form.book_name.label_tag }}
-        {{ form.book_name}}
-      </span>
-      <span>
-        {{ form.author.label_tag }}
-        {{ form.author}}
-      </span>
-      <span>
-        {{ form.genre.label_tag }}
-        {{ form.genre}}
-      </span>
-      <span>
-        {{ form.rating.label_tag }}
-        {{ form.rating}}
-      </span>
-      <input class="text-small-uppercase" id="submit" type="submit" value="Done">
+      {% for field in form %}
+        <div class="form-control {% if field.errors %}errors{% endif %}">
+          {{ field.label_tag }}
+          {{ field }}
+          {{ field.errors }}
+        </div>
+      {% endfor %}
+      <button type="submit">Send</button>
     </form>
-  </main>
-
-  <script type="text/javascript" src="{% static 'tracker/js/app.js' %}"></script>
 {% endblock %}

@@ -1,12 +1,16 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
 from .models import Book
 from .forms import BookDetailInputForm
 
 def index_page(request):
     if(request.method)== "POST":
-        user_input = request.POST
-        book_database = Book.objects.create(title=user_input["book_name"],author=user_input["author"],genre=user_input["genre"],rating=int(user_input["rating"]))
-    form = BookDetailInputForm()
+        form = BookDetailInputForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect("/all-books")
+    else:
+        form = BookDetailInputForm()
     return render(request, "tracker/index.html", {
         "form": form
     })
